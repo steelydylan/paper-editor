@@ -7,6 +7,7 @@ import { linkTo } from '@storybook/addon-links';
 import { Button, Welcome } from '@storybook/react/demo';
 
 import Toolbox from '../src/components/Toolbox';
+import TableEditor from '../src/components/TableEditor';
 
 // storiesOf('Welcome', module).add('to Storybook', () => <Welcome showApp={linkTo('Button')} />);
 
@@ -15,4 +16,4 @@ import Toolbox from '../src/components/Toolbox';
 //   .add('with some emoji', () => <Button onClick={action('clicked')}>😀 😎 👍 💯</Button>);
 
 storiesOf('Components', module)
-  .add('Toolbox', () => <Toolbox />);
+  .add('Toolbox', () => <Toolbox tools={[<TableEditor/>]}/>);

@@ -14,6 +14,7 @@
   "author": "steelydylan",
   "license": "MIT",
   "dependencies": {
+    "a-table": "^1.4.13",
     "array.prototype.findindex": "^2.0.2",
     "babel-polyfill": "^6.23.0",
     "classnames": "^2.2.5",

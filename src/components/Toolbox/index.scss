@@ -4,14 +4,25 @@
   width: 30px;
   height: 30px;
   position: relative;
+  transition: .3s transform;
+  cursor: pointer;
+  &.active {
+    transform: rotate(45deg);
+  }
 }
 
 .paper-toolbox__btn-line {
-  background-color: #666;
+  background-color: #999;
   width: 20px;
   height: 1px;
   display: block;
   position: absolute;
   top: 15px;
   left: 5px;
+  &:nth-child(2) {
+    width: 1px;
+    height: 20px;
+    top: 5px;
+    left: 14px;
+  }
 }

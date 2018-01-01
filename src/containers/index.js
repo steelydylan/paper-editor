@@ -2,10 +2,16 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import React from 'react';
 import * as Actions from '../actions';
+import Toolbox from '../components/Toolbox';
+import TableEditor from '../components/TableEditor';
 
 class App extends React.Component {
-  render() {
-    return ;
+  render () {
+    return (
+      <div>
+        <Toolbox tools={[<TableEditor/>]}/>
+      </div>
+    );
   }
 }
 
