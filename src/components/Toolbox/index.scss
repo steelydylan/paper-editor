@@ -1,0 +1,17 @@
+.paper-toolbox__btn {
+  background-color: #fff;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  position: relative;
+}
+
+.paper-toolbox__btn-line {
+  background-color: #666;
+  width: 20px;
+  height: 1px;
+  display: block;
+  position: absolute;
+  top: 15px;
+  left: 5px;
+}
