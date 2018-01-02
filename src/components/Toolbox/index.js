@@ -24,7 +24,7 @@ export default class Toolbox extends Component {
     const { tools, icons } = this.props;
 
     return (
-    <div style={{position:'relative'}}>
+    <div className="paper-toolbox-wrap">
       <button className={classnames("paper-toolbox__btn", {active: open})} onClick={this.toggleList.bind(this)}>
         <span className="paper-toolbox__btn-line"></span>
         <span className="paper-toolbox__btn-line"></span>
