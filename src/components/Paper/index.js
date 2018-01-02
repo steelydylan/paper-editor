@@ -7,10 +7,8 @@ export default class Paper extends Component {
 
   constructor(props) {
     super(props);
-    this.state = {
-      idx: 0,
-      refresh: false
-    }
+    this.idx = 0;
+    this.refresh = false;
   }
 
   onChange(e, index) {
@@ -23,24 +21,20 @@ export default class Paper extends Component {
         .replace(/<\/div>/g, '');
       actions.updateLine(index, value);
       actions.addNewline(index + 1);
-      this.setState({
-        idx: index + 1,
-        refresh: true
-      });
+      this.idx = index + 1;
+      this.refresh = true;
       return;
     }
-    this.setState({
-      refresh: false
-    })
     actions.updateLine(index, value);
     e.preventDefault();
   }
 
   componentDidUpdate() {
-    const { idx, refresh } = this.state;
+    const { idx, refresh } = this;
     if (!refresh) {
       return;
     }
+    this.refresh = false;
     const editable = this.paper.querySelector(`.paper-editor__editable-${idx}`);
     editable.focus();
   }
