@@ -1,13 +1,23 @@
 .paper-editor {
-    padding:30px;
+    padding:50px;
     background-color:#FFF;
     height:100vh;
     box-sizing:border-box;
 }
 
 .paper-editor__editable {
+    position: relative;
     height: 20px;
     &:focus{
         outline-width: 0;
     }
+}
+
+.paper-editor__editable-wrap:first-child .paper-editor__editable:empty::before {
+    content:"ここに文字を入力できます。";
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: #EEE;
+    z-index: 0;
 }

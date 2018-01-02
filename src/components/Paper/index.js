@@ -44,7 +44,11 @@ export default class Paper extends Component {
     return (
       <div className="paper-editor" ref={(paper) => {this.paper = paper}}>
         {lines.map((line, index) => {
-          return (<ContentEditable className={`paper-editor__editable paper-editor__editable-${index}`} html={line.html} onChange={(e) => {this.onChange(e, index)}}/>);
+          return (
+            <div className="paper-editor__editable-wrap">
+              <ContentEditable className={`paper-editor__editable paper-editor__editable-${index}`} html={line.html} onChange={(e) => {this.onChange(e, index)}}/>
+            </div>
+          );
         })}
       </div>
     );

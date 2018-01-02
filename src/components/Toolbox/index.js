@@ -34,11 +34,6 @@ export default class Toolbox extends Component {
           {icons.map(icon => <li>{icon}</li>)}
         </ul>
       }
-      {open &&
-        <div className="paper-toolbox__target">
-          {tools.map(tool => tool)}
-        </div>
-      }
     </div>);
   }
 }
