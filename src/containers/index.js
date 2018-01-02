@@ -9,7 +9,7 @@ class App extends React.Component {
   render () {
     return (
       <div>
-        <Toolbox tools={[<TableEditor/>]}/>
+        <Toolbox tools={[<TableEditor/>]} icons={[<i className="fa fa-table"></i>]}/>
       </div>
     );
   }

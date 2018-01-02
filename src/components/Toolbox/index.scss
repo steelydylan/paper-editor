@@ -26,3 +26,18 @@
     left: 14px;
   }
 }
+
+.paper-toolbox {
+  position: absolute;
+  top: 0;
+  left: 20px;
+  display: flex;
+  margin: 0;
+  list-style-type: none;
+}
+
+.paper-toolbox li {
+  padding: 5px;
+  color: #999;
+  font-size: 20px;
+}
