@@ -8,7 +8,8 @@ export default class Paper extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      idx: 0
+      idx: 0,
+      refresh: false
     }
   }
 
@@ -23,18 +24,24 @@ export default class Paper extends Component {
       actions.updateLine(index, value);
       actions.addNewline(index + 1);
       this.setState({
-        idx: index + 1
+        idx: index + 1,
+        refresh: true
       });
       return;
     }
+    this.setState({
+      refresh: false
+    })
     actions.updateLine(index, value);
     e.preventDefault();
   }
 
   componentDidUpdate() {
-    const { idx } = this.state;
+    const { idx, refresh } = this.state;
+    if (!refresh) {
+      return;
+    }
     const editable = this.paper.querySelector(`.paper-editor__editable-${idx}`);
-    console.log(editable);
     editable.focus();
   }
 
