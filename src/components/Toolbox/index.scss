@@ -4,6 +4,10 @@
   left: 0;
 }
 
+.paper-toolbox-wrap.active {
+  display: block !important;
+}
+
 .paper-toolbox__btn {
   background-color: #fff;
   border-radius: 50%;
@@ -35,15 +39,34 @@
 
 .paper-toolbox {
   position: absolute;
-  top: 0;
-  left: 20px;
+  top: 50px;
+  left: 0px;
   display: flex;
   margin: 0;
   list-style-type: none;
+  border-radius: 3px;
+  padding: 0 10px;
+  background-color: rgba(0,0,0,.8);
+  &:before {
+    content: "";
+    display: block;
+    width: 0;
+    height: 0;
+    position: absolute;
+    top: -10px;
+    left: 10px;
+    border-style: solid;
+    border-width: 0 7.5px 10px 7.5px;
+    border-color: transparent transparent rgba(0,0,0,.8) transparent;
+  }
 }
 
 .paper-toolbox li {
   padding: 5px;
-  color: #999;
+  color: #FFF;
   font-size: 20px;
+  cursor: pointer;
+  &:hover {
+    opacity: .8;
+  }
 }

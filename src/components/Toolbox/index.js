@@ -8,7 +8,26 @@ export default class Toolbox extends Component {
   constructor (props) {
     super(props);
     this.state = {
-      open: false
+      open: false,
+      icons: [{
+          'label': 'p',
+          'value': 'p'
+        }, {
+          'label': 'h1',
+          'value': 'h1'
+        }, {
+          'label': 'h2',
+          'value': 'h2'
+        }, {
+          'label': 'h3',
+          'value': 'h3'
+        }, {
+          'label': 'h4',
+          'value': 'h4'
+        }, {
+          'label': <i className="fa fa-table"></i>,
+          'value': 'table'
+        }]
     }
   }
 
@@ -20,18 +39,18 @@ export default class Toolbox extends Component {
   }
 
   render () {
-    const { open } = this.state;
-    const { tools, icons } = this.props;
+    const { open, icons } = this.state;
+    const { tools } = this.props;
 
     return (
-    <div className="paper-toolbox-wrap">
+    <div className={classnames("paper-toolbox-wrap", {active: open})}>
       <button className={classnames("paper-toolbox__btn", {active: open})} onClick={this.toggleList.bind(this)}>
         <span className="paper-toolbox__btn-line"></span>
         <span className="paper-toolbox__btn-line"></span>
       </button>
       {open &&
         <ul className="paper-toolbox">
-          {icons.map(icon => <li>{icon}</li>)}
+          {icons.map(icon => <li>{icon.label}</li>)}
         </ul>
       }
     </div>);
