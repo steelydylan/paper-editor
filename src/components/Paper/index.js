@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ContentEditable from 'react-contenteditable';
 
+import Toolbox from '../Toolbox';
 import './index.scss';
 
 export default class Paper extends Component {
@@ -46,6 +47,7 @@ export default class Paper extends Component {
         {lines.map((line, index) => {
           return (
             <div className="paper-editor__editable-wrap">
+              <Toolbox />
               <ContentEditable className={`paper-editor__editable paper-editor__editable-${index}`} html={line.html} onChange={(e) => {this.onChange(e, index)}}/>
             </div>
           );

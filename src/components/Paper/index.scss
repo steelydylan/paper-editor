@@ -7,10 +7,16 @@
 
 .paper-editor__editable {
     position: relative;
-    height: 20px;
+    height: 30px;
+    font-size: 18px;
     &:focus{
         outline-width: 0;
     }
+}
+
+.paper-editor__editable-wrap {
+    position: relative;
+    padding: 0 50px;
 }
 
 .paper-editor__editable-wrap:first-child .paper-editor__editable:empty::before {
@@ -20,4 +26,12 @@
     left: 0;
     color: #EEE;
     z-index: 0;
+}
+
+.paper-toolbox-wrap {
+    display: none;
+}
+
+.paper-editor__editable-wrap:hover .paper-toolbox-wrap {
+    display: block;
 }
