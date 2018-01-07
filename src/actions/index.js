@@ -6,3 +6,4 @@ export const updateLine = (line, value) => ({
   line,
   value
 });
+export const changeType = (line, tagName) => ({ type: types.CHANGETYPE, line, tagName });

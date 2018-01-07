@@ -38,9 +38,14 @@ export default class Toolbox extends Component {
     });
   }
 
+  changeType(line, tagName) {
+    const { actions } = this.props;
+    actions.changeType(line, tagName);
+  }
+
   render () {
     const { open, icons } = this.state;
-    const { tools } = this.props;
+    const { tools, index, active } = this.props;
 
     return (
     <div className={classnames("paper-toolbox-wrap", {active: open})}>
@@ -50,7 +55,7 @@ export default class Toolbox extends Component {
       </button>
       {open &&
         <ul className="paper-toolbox">
-          {icons.map(icon => <li>{icon.label}</li>)}
+          {icons.map((icon) => <li className={classnames({active: active === icon.value})} onClick={this.changeType.bind(this, index, icon.value)}>{icon.label}</li>)}
         </ul>
       }
     </div>);

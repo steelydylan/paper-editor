@@ -3,7 +3,8 @@ import * as types from "../constants/actionTypes";
 const initialState = {
   lines: [
     {
-      html: ""
+      html: "",
+      tagName: "p"
     }
   ]
 };
@@ -14,15 +15,25 @@ export default (state = initialState, action) => {
       return Object.assign({}, state, {
         lines: [
           ...state.lines.slice(0, action.line),
-          { html: "" },
+          { html: "", tagName: "p" },
           ...state.lines.slice(action.line)
         ]
       });
     case types.UPDATELINE:
+      const currentLine1 = state.lines[action.line];
       return Object.assign({}, state, {
         lines: [
           ...state.lines.slice(0, action.line),
-          { html: action.value },
+          Object.assign({}, currentLine1, {html: action.value}),
+          ...state.lines.slice(action.line + 1)
+        ]
+      });
+    case types.CHANGETYPE:
+      const currentLine2 = state.lines[action.line];
+      return Object.assign({}, state, {
+        lines: [
+          ...state.lines.slice(0, action.line),
+          Object.assign({}, currentLine2, {tagName: action.tagName}),
           ...state.lines.slice(action.line + 1)
         ]
       });

@@ -41,14 +41,14 @@ export default class Paper extends Component {
   }
 
   render () {
-    const  { lines } = this.props;
+    const  { lines, actions } = this.props;
     return (
       <div className="paper-editor" ref={(paper) => {this.paper = paper}}>
         {lines.map((line, index) => {
           return (
             <div className="paper-editor__editable-wrap">
-              <Toolbox />
-              <ContentEditable className={`paper-editor__editable paper-editor__editable-${index}`} html={line.html} onChange={(e) => {this.onChange(e, index)}}/>
+              <Toolbox actions={actions} index={index} active={line.tagName}/>
+              <ContentEditable tagName={line.tagName} className={`paper-editor__editable paper-editor__editable-${index}`} html={line.html} onChange={(e) => {this.onChange(e, index)}}/>
             </div>
           );
         })}
