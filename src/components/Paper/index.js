@@ -15,19 +15,25 @@ export default class Paper extends Component {
   onChange(e, index) {
     const { actions } = this.props;
     let value = e.target.value;
-    if (value.indexOf('<br>') !== -1) {
-      value = value
-        .replace(/<br>/g, '')
-        .replace(/<div>/g, '')
-        .replace(/<\/div>/g, '');
-      actions.updateLine(index, value);
-      actions.addNewline(index + 1);
-      this.idx = index + 1;
-      this.refresh = true;
-      return;
-    }
+    // if (value.indexOf('<br>') !== -1) {
+    //   value = value
+    //     .replace(/<br>/g, '')
+    //     .replace(/<div>/g, '')
+    //     .replace(/<\/div>/g, '');
+    //   actions.updateLine(index, value);
+    //   actions.addNewline(index + 1);
+    //   this.idx = index + 1;
+    //   this.refresh = true;
+    //   return;
+    // }
     actions.updateLine(index, value);
     e.preventDefault();
+  }
+
+  addNewline(line) {
+    const { actions } = this.props;
+    actions.addNewline(line);
+    this.idx = index + 1;
   }
 
   componentDidUpdate() {
@@ -49,6 +55,9 @@ export default class Paper extends Component {
             <div className="paper-editor__editable-wrap">
               <Toolbox actions={actions} index={index} active={line.tagName}/>
               <ContentEditable tagName={line.tagName} className={`paper-editor__editable paper-editor__editable-${index}`} html={line.html} onChange={(e) => {this.onChange(e, index)}}/>
+              <div className="paper-editor__add-btn-wrap">
+                <button onClick={this.addNewline.bind(this, index + 1)} className="paper-editor__add-btn"><i className="fa fa-plus"></i></button>
+              </div>
             </div>
           );
         })}

@@ -41,6 +41,9 @@ export default class Toolbox extends Component {
   changeType(line, tagName) {
     const { actions } = this.props;
     actions.changeType(line, tagName);
+    this.setState({
+      open: false
+    });
   }
 
   render () {

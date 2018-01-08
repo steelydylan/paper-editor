@@ -7,6 +7,9 @@
 
 .paper-editor__editable {
     position: relative;
+    background-color: #EEE;
+    padding: 5px;
+    border-radius: 3px;
     &:focus{
         outline-width: 0;
     }
@@ -15,6 +18,26 @@
 .paper-editor__editable-wrap {
     position: relative;
     padding: 0 50px;
+    margin-bottom: 30px;
+}
+
+.paper-editor__add-btn-wrap {
+    position: absolute;
+    bottom: -30px;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    opacity: 0;
+}
+
+.paper-editor__add-btn {
+    border-radius: 50%;
+    background-color: #FFF;
+    border: 1px solid #CCC;
+}
+
+.paper-editor__editable-wrap:hover .paper-editor__add-btn-wrap {
+    opacity: 1;
 }
 
 .paper-editor__editable-wrap:first-child .paper-editor__editable:empty::before {
