@@ -7,3 +7,5 @@ export const updateLine = (line, value) => ({
   value
 });
 export const changeType = (line, tagName) => ({ type: types.CHANGETYPE, line, tagName });
+
+export const removeLine = (line) => ({ type: types.REMOVELINE, line });

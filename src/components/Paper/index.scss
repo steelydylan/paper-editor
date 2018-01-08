@@ -7,7 +7,8 @@
 
 .paper-editor__editable {
     position: relative;
-    background-color: #EEE;
+    background-color: #FFF;
+    transition: all .3s;
     padding: 5px;
     border-radius: 3px;
     &:focus{
@@ -15,10 +16,15 @@
     }
 }
 
+.paper-editor__editable-wrap:hover .paper-editor__editable {
+    background-color: #EEE;
+}
+
 .paper-editor__editable-wrap {
     position: relative;
     padding: 0 50px;
     margin-bottom: 30px;
+    border-bottom: 1px solid #EEE;
 }
 
 .paper-editor__add-btn-wrap {
@@ -55,4 +61,12 @@
 
 .paper-editor__editable-wrap:hover .paper-toolbox-wrap {
     display: block;
+}
+
+.paper-editor__remove-btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-radius: 50%;
+    background-color: #FFF;
 }

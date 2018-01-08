@@ -46,6 +46,11 @@ export default class Paper extends Component {
     editable.focus();
   }
 
+  removeLine(line) {
+    const { actions } = this.props;
+    actions.removeLine(line);
+  }
+
   render () {
     const  { lines, actions } = this.props;
     return (
@@ -54,6 +59,7 @@ export default class Paper extends Component {
           return (
             <div className="paper-editor__editable-wrap">
               <Toolbox actions={actions} index={index} active={line.tagName}/>
+              <button onClick={this.removeLine.bind(this, index)} className="paper-editor__remove-btn"><i className="fa fa-remove"></i></button>
               <ContentEditable tagName={line.tagName} className={`paper-editor__editable paper-editor__editable-${index}`} html={line.html} onChange={(e) => {this.onChange(e, index)}}/>
               <div className="paper-editor__add-btn-wrap">
                 <button onClick={this.addNewline.bind(this, index + 1)} className="paper-editor__add-btn"><i className="fa fa-plus"></i></button>

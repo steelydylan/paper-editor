@@ -37,6 +37,10 @@ export default (state = initialState, action) => {
           ...state.lines.slice(action.line + 1)
         ]
       });
+    case types.REMOVELINE:
+      return Object.assign({}, state, {
+        lines: [...state.lines.slice(0, action.line), ...state.lines.slice(action.line + 1)]
+      })
     default:
       return state;
   }
