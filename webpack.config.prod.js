@@ -3,7 +3,7 @@ var webpack = require('webpack');
 var ExternalsPlugin = webpack.ExternalsPlugin;
 
 module.exports = {
-  entry: './src/main.jsx',
+  entry: './src/index.js',
   output: {
     path: __dirname,
     filename: 'bundle.js'

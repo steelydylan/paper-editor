@@ -24,9 +24,6 @@ export default class Toolbox extends Component {
         }, {
           'label': 'h4',
           'value': 'h4'
-        }, {
-          'label': <i className="fa fa-table"></i>,
-          'value': 'table'
         }]
     }
   }

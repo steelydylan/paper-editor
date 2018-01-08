@@ -15,18 +15,13 @@ export default class Paper extends Component {
   onChange(e, index) {
     const { actions } = this.props;
     let value = e.target.value;
-    // if (value.indexOf('<br>') !== -1) {
-    //   value = value
-    //     .replace(/<br>/g, '')
-    //     .replace(/<div>/g, '')
-    //     .replace(/<\/div>/g, '');
-    //   actions.updateLine(index, value);
-    //   actions.addNewline(index + 1);
-    //   this.idx = index + 1;
-    //   this.refresh = true;
-    //   return;
-    // }
-    actions.updateLine(index, value);
+    if (value) {
+      actions.updateLine(index, value);
+    } else {
+      if (index !== 0) {
+        actions.removeLine(index);
+      }
+    }
     e.preventDefault();
   }
 
@@ -48,7 +43,9 @@ export default class Paper extends Component {
 
   removeLine(line) {
     const { actions } = this.props;
-    actions.removeLine(line);
+    if (line !== 0) {
+      actions.removeLine(line);
+    }
   }
 
   render () {
@@ -59,10 +56,18 @@ export default class Paper extends Component {
           return (
             <div className="paper-editor__editable-wrap">
               <Toolbox actions={actions} index={index} active={line.tagName}/>
-              <button onClick={this.removeLine.bind(this, index)} className="paper-editor__remove-btn"><i className="fa fa-remove"></i></button>
-              <ContentEditable tagName={line.tagName} className={`paper-editor__editable paper-editor__editable-${index}`} html={line.html} onChange={(e) => {this.onChange(e, index)}}/>
+              {line.mode === 'text' &&
+              <div>
+                <button onClick={this.removeLine.bind(this, index)} className="paper-editor__remove-btn"><i className="fa fa-remove"></i></button>
+                <ContentEditable tagName={line.tagName} className={`paper-editor__editable paper-editor__editable-${index}`} html={line.html} onChange={(e) => {this.onChange(e, index)}}/>
+              </div>
+              }
               <div className="paper-editor__add-btn-wrap">
                 <button onClick={this.addNewline.bind(this, index + 1)} className="paper-editor__add-btn"><i className="fa fa-plus"></i></button>
+                {/* <ul>
+                  <li></li>
+                  <li></li>
+                </ul> */}
               </div>
             </div>
           );

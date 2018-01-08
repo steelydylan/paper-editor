@@ -4,7 +4,8 @@ const initialState = {
   lines: [
     {
       html: "",
-      tagName: "p"
+      tagName: "p",
+      mode: "text"
     }
   ]
 };
@@ -15,7 +16,7 @@ export default (state = initialState, action) => {
       return Object.assign({}, state, {
         lines: [
           ...state.lines.slice(0, action.line),
-          { html: "", tagName: "p" },
+          { html: "", tagName: "p", mode: "text" },
           ...state.lines.slice(action.line)
         ]
       });
